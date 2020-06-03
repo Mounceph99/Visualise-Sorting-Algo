@@ -1,0 +1,127 @@
+﻿<!--
+Author: Mounceph Morssaoui
+Github: Mounceph99
+Created on: May 21, 2020
+Last Modified: May 28, 2020
+
+Description:
+    This page is the UI to learn and test by visualizing different sorting algorithm.
+    The user can change the speed and select which ever sorting algorithm he wishes to
+    observe.
+-->
+ 
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Algorithm Visuals- Sorts</title>
+    <meta name="description" content="Algorithm Visuals">
+    <meta name="author" content="Mounceph Morssaoui">
+
+    <!--Sorting page styling-->
+    <link rel="stylesheet" href="css/sorting_style.css">
+
+    <!--For icon size-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!--For nav icons: https://fontawesome.com/icons?d=gallery-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Javascript code used for visualizing and interacting with sorting UI-->
+    <!--UI interactions, i.e. buttons, slider, dropdown... -->
+    <script src="sorting/sorting_interaction.js"></script>
+    <!--All sorting algorithms -->
+    <script src="sorting/sorting_algo.js"></script>
+    <script src="sorting/sorting_algo2.js"></script>
+
+    <!--Helper function for UI-->
+    <script src="Help/interaction.js"></script>
+
+</head>
+
+<!--
+    body is divided into 4 by 4 where:
+    -Left column is for the navigation bar
+    -Middle colum, row 1-3 the container where the sort happens (container) and row 4 for the slider
+    -Right column, buttons to play with sorting parameters
+    -->
+<body class="grid">
+
+    <!--Nav bar with four options
+        The sub-menus are on the left of the page-->
+    <nav>
+        <ul>
+            <!--Home page redirect-->
+            <li onclick='pageRedirect("Home_page.html")'>
+                <i class="w3-xxlarge fa fa-home"></i>
+            </li>
+            <!--Sorting page redirect-->
+            <li onclick='pageRedirect("sorting_main.html")'>
+                <i class="w3-xxlarge fa fa-sort-amount-asc"></i>
+            </li>
+            <!--Pathfinding page redirect-->
+            <li onclick='pageRedirect("pathfinding_main.html")'>
+                <i class="w3-xxlarge fa fa-plane"></i>
+            </li>
+            <!--Miscellaneous page redirect-->
+            <li onclick='pageRedirect("Miscellaneous_page.html")'>
+                <i class="w3-xxlarge fa fa-bars"></i>
+            </li>
+        </ul>
+    </nav>
+
+    <!--This div is the container in where the sorting algorithms can be seen from.
+        The vertical bars will be display here-->
+    <div class="container"></div>
+
+    <!--Div for the stylw of the dropdown menu-->
+    <div class="dropdown">
+        <!--Actual dropdown menu -->
+        <button class="dropbtn">
+            <span style="position:relative;bottom:20px;">
+                Select Sort
+                <!--Animated caret icon that rotates down when dropdown menu is hovered -->
+                <i class="w3-xlarge fa fa-caret-right" style="position:relative;top:3px;"></i>
+            </span>
+        </button>
+        <!--Dropdown content, all offered sorting algorithms-->
+        <div class="dropdown-content">
+            <a href="#bubble" onclick="changeSort('Bubble Sort')">Bubble Sort</a>
+            <a href="#selection" onclick="changeSort('Selection Sort')">Selection Sort</a>
+            <a href="#insertion" onclick="changeSort('Insertion Sort')">Insertion Sort</a>
+            <a href="#radix" onclick="changeSort('Radix Sort')">Radix Sort</a>
+            <a href="#counting" onclick="changeSort('Counting Sort')">Counting Sort</a>
+            <a href="#heap" onclick="changeSort('Heap Sort')">Heap Sort</a>
+            <a href="#quick" onclick="changeSort('Quick Sort')">Quick Sort</a>
+            <a href="#merge" onclick="changeSort('Merge Sort')">Merge Sort</a>
+        </div>
+    </div>
+
+    <!--UI buttons for controlling the visualization process
+        User can select the sort, can restart the sorting by shuffling,
+        can select a speed, start the sort to visualize, and can instantly finish the sort
+        -->
+    <button type="button" class="sortButton" onClick=sort()>Bubble Sort</button>
+    <button type="button" class="shuffleButton" onClick=shuffle()>Shuffle</button>
+    <button type="button" class="speedButton" onClick=speed()>1x</button>
+    <input class="slider" type="range" style="margin-top: 20px;" value="100" min="10" max="500" step="10" />
+    <button type="button" class="speedButton" onClick="instantDone()" style="position:relative; left:75px;">
+        <i class="w3-xxlarge fa fa-fighter-jet" style="position:relative;bottom:30px;"></i>
+    </button>
+
+    <!--Footer: Links to email and github with an animated waving hand -->
+    <div class="footerDiv">
+        <ul class="footer">
+            <li><a href="mailto:Mounceph99@hotmail.com">Email</a></li>
+            <li><a href="https://github.com/Mounceph99" target="_blank">Github</a></li>
+            <li style="position:relative; bottom:35px;">
+                <p class="w3-xlarge">👋</p>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
+<!--end-->
